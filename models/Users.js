@@ -18,8 +18,35 @@ const UserSchema = new mongoose.Schema({
     },
     number :{
         type : Number
-    }
-})
+    },
+    "fullname" : {
+        type : String,
+        trim : true, 
+    },
+    "sugarlevel" : {
+        type : Number
+    },
+    "cholestrol" : {
+        type : Number
+    },
+    "bloodpressure" : {
+        type : String,
+        enum : ['Yes', 'No'],
+        default : 'No'
+    },
+    "weightInkg" : {
+        type : Number,
+        max : 200,
+        min : 15,
+    },
+    "height" : {
+        type : Number,
+    },
+    "physique" : {
+        type : String,
+        enum : ["Slim", "Normal", "Fit", "Fat", "Overweight"]
+    },
+}, {timestamps : true})
 
 
 UserSchema.plugin(findOrCreate)
